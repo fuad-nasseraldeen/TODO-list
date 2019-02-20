@@ -1,0 +1,142 @@
+/* Font */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
+
+/* navbar */
+.navbar{
+    margin-bottom: 0px;
+}
+
+/* intro */
+.intro{
+    background: url("../img/intro-bg.jpg");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 50px;
+    width: 100%;
+    min-height: 500px;
+}
+
+.intro .title{
+    text-align: center;
+    font-family: "Roboto Slab";
+    font-weight: 700;
+    font-size: 4em;
+    color: #fff;
+    margin-top: 80px; 
+    margin-bottom: 30px;
+}
+
+.intro .sub-title{
+    text-align: center;
+    font-family: "Roboto Slab";
+    font-weight: 800;
+    color: black;
+	opacity : 1;
+/*	#03405a; */
+    margin: 30px auto;
+}
+
+.intro .tutr{
+    text-align: center;
+    font-weight: 800;
+    display: block;
+    margin: 5% auto 5% auto;
+  background-color:white;
+  opacity : 0.5;
+    width: 70%;
+    padding: 6%; 
+    border-radius: 10px;
+    /*border: 2px solid #eee;*/
+    color: #eee;
+}
+
+.intro .tutr .btn-intro{
+    text-decoration: none;
+    display: block;
+    width: 80%;
+    height: 40px;
+    margin: 20px auto 0px auto;
+    border: 2px solid #fff; 
+    background: rgba(0,0,0, .6);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 40px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+
+}
+
+.intro .tutr .btn-intro:hover{
+    background: rgba(0,0,0, .4); 
+    color: #fff;
+    text-decoration: none;
+}
+
+/* content */
+/* todo item - add todo form */
+.todoform{
+    margin: 20px auto;
+}
+
+.todoempty{
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: #aaa;
+}
+
+#todo{
+
+}
+/* todo item - title */
+.title{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#list-item{
+    position: relative;
+}
+/* todo list */
+.date{
+    font-size: 12px;
+    right: 50px;
+    top: 20px;
+    display: block;
+    position: absolute;
+}
+
+/* remove icon */
+.remove{
+    float: right;
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+} 
+
+.remove:hover{
+    color: #444;
+}
+
+/* footer */
+#footer{
+    margin-top: 80px;
+    padding: 30px; 
+    background: #03405a;
+    color: #eee;
+}
+/* misc */
+.done{
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.empty{
+    
+}

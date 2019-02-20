@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Todo list app</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/angular-datepicker.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="app">
+    <!-- navbar -->
+    <section id="navbar">
+        <nav class="navbar navbar-default">
+            <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Todo list app</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    </section><!-- End navbar -->
+
+    <!-- intro -->
+    <section class="intro">
+        <div class="container">
+            <h3 class="title">​The Todo list app that is beautiful and easy-to-use</h3>
+            <h4 class="sub-title">Responsive Todo list app with AngularJS and Bootstrap</h4>
+            <div class="tutr">
+               <h4> To add new Todo item write the Todo title in the form below then click add. </h4>
+                <a href="#todo" class="btn-intro">GET START</a>
+            </div>
+            
+        </div>
+    </section><!-- End intro -->
+
+    <!-- content -->
+    <section id="content">
+        <!-- Controller -->
+        <div class="container" ng-controller="todoController">
+
+            <!-- todo form -->
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <div class="row todoform" id="todo">
+                <form name="frm" ng-submit="addTodo()">
+
+                    <div class="col-sm-4 col-xs-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="New Todo" ng-model="newTodo" required>
+                            <span class="input-group-addon" style="cursor: pointer">
+                            <i class="fa fa-list-ul"></i>
+
+                        </div>
+                    </div><!-- End Col -->
+
+                    <!-- Date -->
+                    <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <datepicker date-format="yyyy-MM-dd" selector="form-control">
+                                <div class="input-group">
+                                    <input ng-model="date" class="form-control" placeholder="Choose a date" required>
+                                    <span class="input-group-addon" style="cursor: pointer">
+                                    <i class="fa fa-lg fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </datepicker>
+                        </div>
+                    </div><!-- End Col -->
+
+                    <div class="col-sm-4 col-xs-12">
+                        <button ng-disabled="frm.$invalid" class="btn btn-block btn-primary">
+                        <i class="fa fa-plus"></i> Add
+                        </button>
+                    </div><!-- End Col -->
+
+                </form><!-- End form -->
+            </div><!-- End row -->
+            </div><!-- Panel Body -->
+            </div><!-- Panel -->
+            
+            <!-- todo list -->
+            <div class="row">
+                <!-- Todos List -->
+                <div class="col-xs-12">
+                    <ul class="todolist list-group">
+                        <li id="list-item" class="list-group-item" ng-repeat="todo in todos">
+                            <input type="checkbox" ng-model="todo.done">
+                            <span ng-class="{'done':todo.done}" class="title">{{ todo.title }}</span>
+                            <span class="date label label-default">
+                                <i class="fa fa-lg fa-calendar"></i> - {{todo.date | date:'dd/MM/yyyy'}}
+                            </span>
+                            <a class="remove" ng-click="removeTodo(todo)">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </li>
+                        <li ng-show="!todos.length" class="list-group-item todoempty">There is no Todo's</li>
+                    </ul><!-- End Todos List -->
+                </div><!-- End Col -->
+
+                <div class="col-sm-6 col-xs-12">
+                    <button ng-click="clearCompleted()" ng-disabled="!todos.length" class="btn btn-block btn-danger">
+                    <i class="fa fa-trash"></i> Clear Completed
+                    </button>
+                </div><!-- End Col -->
+            </div><!-- End Row -->
+            
+        </div><!-- End container & Controller -->
+    </section><!-- End content -->
+
+    <!-- footer -->
+    <section id="footer">
+        <div class="container">
+            Copyright &copy; 2017
+        </div>
+    </section><!-- End footer -->
+
+    <!-- About Us Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">About Me</h4>
+          </div>
+          <div class="modal-body">
+		    <h6><b>********************************************************** </b></h6>
+            <h4>Fuad Nasser-Aldeen - 201211570</h4>
+			<h6><b>********************************************************** </b></h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-datepicker.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/extra.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
